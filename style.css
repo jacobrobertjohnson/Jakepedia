@@ -93,6 +93,6 @@ td p:last-of-type {
 }
 
 .checklist li:before {
-  content: "☑";
+  content: "\2611";
   padding-right: 5px;
 }
