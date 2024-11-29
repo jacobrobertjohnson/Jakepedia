@@ -1,9 +1,98 @@
+:root {
+  font-size: 16px;
+}
+
+html {
+  font-family: Georgia;
+}
+
+article {
+  max-width: 50rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+p,
+li {
+  line-height: 1.4em;
+}
+
+h1 {
+  font-size: 2em;
+}
+
+h2 {
+  font-size: 1.5em;
+}
+
+h3 {
+  font-size: 1.17em;
+}
+
+h4 {
+  font-size: 1em;
+}
+
+h5 {
+  font-size: 0.83em;
+}
+
+h6 {
+  font-size: 0.67em;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+thead {
+  border: 1px solid black;
+}
+
+th,
+td {
+  padding: 0.5rem;
+}
+
 th {
-	background: navy;
-	color: white;
+  background: navy;
+  color: white;
+  text-align: left;
 }
 
 td {
-	border: 1px solid black;
+  border: 1px solid black;
+  vertical-align: top;
 }
 
+td:first-of-type {
+  font-weight: bold;
+}
+
+td p:first-of-type {
+  margin-top: 0;
+}
+
+td p:last-of-type {
+  margin-bottom: 0;
+}
+
+.center {
+  text-align: center;
+}
+
+.checklist ul {
+  list-style: none;
+  margin-left: 0;
+  padding-left: 0;
+}
+
+.checklist li {
+  padding-left: 1em;
+  text-indent: -1em;
+}
+
+.checklist li:before {
+  content: "☑";
+  padding-right: 5px;
+}
