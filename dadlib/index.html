@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dad Libs</title>
+  </head>
+
+  <body>
+    <h1>Dad Libs</h1>
+    <h2 id="heading"></h2>
+    <div id="game"></div>
+
+    <div id="games" style="display: none">
+      Janitor The janitor has the [Adjective 1] job of keeping the [Place]
+      [Adjective 2] and clean. Without his constant [Verb ending in -ing 1], we
+      would be [Verb ending in -ing 2] in our own [Noun 1] all day long. =====
+      Breakfast My favorite breakfast food is [Food].
+    </div>
+
+    <script>
+      (function () {
+        let heading = "";
+        let currentGame = null;
+        let games = {};
+
+        load();
+
+        async function load() {
+          const rawGames = document.getElementById("games").innerHTML;
+          const splitGames = rawGames
+            .split("=")
+            .filter((g) => !!g)
+            .map((g) => g.trim());
+
+          for (let i = 0; i < splitGames.length; i++) {
+            const gameLines = splitGames[i].split("\n");
+            const id = gameLines[0].trim();
+            const body = gameLines.slice(1, gameLines.length);
+
+            games[id] = body.join("\n").trim();
+          }
+
+          console.log(games);
+
+          render();
+        }
+
+        function render() {
+          const $heading = document.getElementById("heading");
+
+          setDisplay($heading, heading);
+
+          if (heading) {
+            $heading.innerHTML = heading;
+          }
+
+          if (!currentGame) {
+            for (let key in Object.keys(games)) {
+              if (!games.hasOwnProperty(key)) return;
+            }
+          }
+
+          function setDisplay($el, visible) {
+            $el.style.display = visible ? "unset" : "none";
+          }
+        }
+      })();
+    </script>
+  </body>
+</html>
