@@ -96,3 +96,8 @@ td p:last-of-type {
   content: "\2611";
   padding-right: 5px;
 }
+
+.highlight {
+  background: yellow;
+  color: black;
+}
